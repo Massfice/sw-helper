@@ -1,0 +1,13 @@
+{
+    "name": "massfice/sw-helper",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Massfice",
+            "email": "adrian.marian.tomasz.larysz@gmail.com"
+        }
+    ],
+    "require": {
+        "massfice/selecting-view-resolver": "^1.0"
+    }
+}

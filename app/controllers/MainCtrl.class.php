@@ -7,12 +7,14 @@ use core\ParamUtils;
 use core\Utils;
 
 use app\init\InitRoutes;
+use app\init\core\Init;
 use app\routes\Routes;
-use app\routes\Forward;
+use app\routes\RoutesInfo;
 
 class MainCtrl {
 
   public function __construct() {
+    Init::init();
     InitRoutes::init();
   }
 
@@ -29,7 +31,7 @@ class MainCtrl {
   }
 
   public function action_start() {
-    App::getSmarty()->assign('action',$this->actionConcat());
+    App::getSmarty()->assign('action',RoutesInfo::getRoutePath());
     App::getSmarty()->display('core/index.tpl');
   }
 
