@@ -6,8 +6,9 @@ use core\App;
 use core\ParamUtils;
 use core\Utils;
 
-use app\routes\InitRoutes;
+use app\init\InitRoutes;
 use app\routes\Routes;
+use app\routes\Forward;
 
 class MainCtrl {
 
@@ -34,16 +35,11 @@ class MainCtrl {
 
   public function action_forward() {
     $action = ParamUtils::getFromCleanUrl(1);
-    $route = Routes::getInstance()->getRoute($action);
-
-    Utils::addRoute($route->getAction(),$route->getController(),$route->getRoles());
-    App::getRouter()->forwardTo($route->getAction());
+    Routes::getInstance()->getRoute($action)->forward();
   }
 
   public function action_cant() {
-    $route = Routes::getInstance()->getLogin();
-    Utils::addRoute($route->getAction(),$route->getController(),$route->getRoles());
-    App::getRouter()->forwardTo($route->getAction());
+    Routes::getInstance()->getLogin()->forward();
   }
 }
 

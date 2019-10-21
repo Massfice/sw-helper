@@ -33,6 +33,10 @@ class Route {
     Routes::getInstance()->save($this);
   }
 
+  public function forward() {
+    Forward::to($this);
+  }
+
     /**
      * Get the value of action
      *

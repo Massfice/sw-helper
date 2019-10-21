@@ -1,4 +1,5 @@
-function go(url, form = false) {
+function go(action, form = false) {
+  var url = aroot + 'forward/' + action;
   if(form) {
     var data = $('#'+form).serialize();
   } else {
@@ -15,5 +16,5 @@ function go(url, form = false) {
 }
 
 $(window).on('load',function(){
-  go(action);
+  go(start_action);
 });

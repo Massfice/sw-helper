@@ -1,6 +1,9 @@
 <?php
 
-namespace app\routes;
+namespace app\init;
+
+use app\routes\Route;
+use app\routes\Routes;
 
 class InitRoutes {
   public static function init() {
