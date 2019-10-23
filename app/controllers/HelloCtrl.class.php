@@ -7,6 +7,8 @@ use core\Message;
 use core\Utils;
 use app\routes\RoutesInfo;
 
+use app\bundles\ViewResolver\ViewResolver;
+
 /**
  * HelloWorld built in Amelia - sample controller
  *
@@ -15,19 +17,23 @@ use app\routes\RoutesInfo;
 class HelloCtrl {
 
     public function action_hello() {
-
-        $variable = RoutesInfo::getLast();
-
-        App::getMessages()->addMessage(new Message("Hello world message", Message::INFO));
-        Utils::addInfoMessage("Or even easier message :-)");
-
-        App::getSmarty()->assign("value",$variable);
-        App::getSmarty()->display("Hello.tpl");
-
+      ViewResolver::content('on','toggle');
+      ViewResolver::display('ojciec');
     }
 
     public function action_hello2() {
-      echo 'ss';
+      ViewResolver::content('off','toggle');
+      ViewResolver::display('babcia');
+    }
+
+    public function action_on() {
+      ViewResolver::content('on','toggle');
+      ViewResolver::display();
+    }
+
+    public function action_off() {
+      ViewResolver::content('off','toggle');
+      ViewResolver::display();
     }
 
 }

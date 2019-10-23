@@ -1,5 +1,6 @@
 <?php
 require_once 'init.php';
+require_once __DIR__.'/vendor/autoload.php';
 
 // Witamy we frameworku Amelia !
 // Framework zamyka ostatecznie wszystko to, co było wprowadzone do tej pory, dodatkowo wprowadzając ułatwienia i rozszerzenia.
@@ -29,7 +30,7 @@ require_once 'init.php';
 //
 // 3. Ostatnią ważną zmianą jest zaimplementowanie "przyjaznych linków" (ang. "pretty urls", "clean urls", "friendly urls"), co nie jest niczym
 //    innym jak ukrywaniem "brzydkich" parametrów w URLu w ramach przyjętej konwencji.
-//    
+//
 //    Przykład:  zamiast http://www.domena.pl/index.php?action=main&name=ala&age=15
 //    można stworzyć rozwiązanie przyjmujące tę samą liczbę parametrów przekazanych w ten sposób:
 //                       http://www.domena.pl/main/ala/15

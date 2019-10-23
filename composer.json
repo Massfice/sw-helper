@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-        "massfice/selecting-view-resolver": "^1.0"
+        "massfice/selecting-view-resolver": "^1.0",
+        "massfice/array-refactor": "^1.0"
     }
 }

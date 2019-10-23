@@ -28,6 +28,15 @@ class RoutesInfo {
 
     return $action;
   }
+
+  public static function getFromCleanUrl(int $i) {
+    $i = $i + 2;
+    return ParamUtils::getFromCleanUrl($i);
+  }
+
+  public static function getAction() {
+    return ParamUtils::getFromCleanUrl(1);
+  }
 }
 
 ?>
