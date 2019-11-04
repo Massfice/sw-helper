@@ -8,6 +8,10 @@ use core\Utils;
 
 use app\init\InitRoutes;
 use app\init\InitContainers;
+use app\init\InitSmartyAssign;
+use app\init\EntityManagerInit;
+use app\init\ForwardInit;
+use app\init\InitCustom;
 use app\init\core\Init;
 use app\routes\Routes;
 use app\routes\RoutesInfo;
@@ -18,18 +22,9 @@ class MainCtrl {
     Init::init();
     InitRoutes::init();
     InitContainers::init();
-  }
-
-  private function actionConcat() : string {
-    $action = ParamUtils::getFromCleanUrl(0);
-
-    $i = 1;
-    while($buff = ParamUtils::getFromCleanUrl($i)) {
-      $action = $action.'/'.$buff;
-      $i++;
-    }
-
-    return $action;
+    InitSmartyAssign::init();
+    EntityManagerInit::init();
+    InitCustom::init();
   }
 
   public function action_start() {
@@ -38,12 +33,14 @@ class MainCtrl {
   }
 
   public function action_forward() {
-    $action = ParamUtils::getFromCleanUrl(1);
+    ForwardInit::init();
+    $action = RoutesInfo::getAction();
     Routes::getInstance()->getRoute($action)->forward();
   }
 
   public function action_cant() {
-    Routes::getInstance()->getLogin()->forward();
+    $action = RoutesInfo::getAction();
+    Routes::getInstance()->getLogin($action)->forward();
   }
 }
 

@@ -1,0 +1,30 @@
+.mymenu ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.mymenu ul li a {
+  background: #333333;
+  color: #ffffff;
+  border: 3px solid #b88536;
+  border-top: 0 none;
+  line-height: 150%;
+  padding: 1px 1px;
+  font-size: 12px;
+}
+
+.mymenu ul li a:hover {
+  background: #b88536;
+  color: #ffffff;
+  border: 3px solid #b88536;
+  border-top: 0 none;
+  line-height: 150%;
+  padding: 1px 1px;
+  font-size: 12px;
+}
+
+#content {
+  font-size: 10px;
+}

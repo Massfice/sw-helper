@@ -12,9 +12,11 @@ class Generate implements GeneratorMethod {
     if($file != '') {
       $r['up'] = App::getSmarty()->fetch('extends:containers/'.$file.'.tpl|core/up.tpl');
       $r['down'] = App::getSmarty()->fetch('extends:containers/'.$file.'.tpl|core/down.tpl');
+      $r['title'] = App::getSmarty()->fetch('extends:containers/'.$file.'.tpl|core/title.tpl');;
     } else {
       $r['up'] = '';
       $r['down'] = '';
+      $r['title'] = false;
     }
 
     return $r;
@@ -30,6 +32,12 @@ class Generate implements GeneratorMethod {
             ->getShelf('view_resolver_containers')
             ->addData('up_'.$i,$template['up'])
             ->addData('down_'.$i,$template['down']);
+
+          if($template['title']) {
+            Storage::getInstance()
+              ->getShelf('view_resolver_contents')
+              ->addData('container_title',$template['title'],true);
+          }
         }
       }
     }

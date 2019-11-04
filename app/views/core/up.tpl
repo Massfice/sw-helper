@@ -4,3 +4,6 @@
 
 {block name = 'down'}
 {/block}
+
+{block name = 'title'}
+{/block}

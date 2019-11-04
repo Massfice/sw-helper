@@ -34,9 +34,9 @@ class Routes {
     return $this;
   }
 
-  public function setLogin(string $action) : self {
-    if(isset($this->routes[$action]))
-      $this->login = $action;
+  public function setLogin(string $action, string $for = 'default') : self {
+    if(isset($this->routes[$action]) && (isset($this->routes[$for]) || $for == 'default'))
+      $this->login[$for] = $action;
 
     return $this;
   }
@@ -48,8 +48,10 @@ class Routes {
       return $this->routes[$this->default];
   }
 
-  public function getLogin() : Route {
-    return $this->routes[$this->login];
+  public function getLogin(string $for) : Route {
+    if(isset($this->login[$for]))
+      return $this->routes[$this->login[$for]];
+    return $this->routes[$this->login['default']];
   }
 
 }

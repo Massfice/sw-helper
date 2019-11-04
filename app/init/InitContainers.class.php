@@ -8,10 +8,7 @@ class InitContainers {
   public static function init() {
     ContainersHierarchy::getInstance()->setHierarchy([
       'main' => [
-        'babcia',
-        'dziadek' => [
-          'ojciec'
-        ]
+        'access'
       ]
     ]);
   }

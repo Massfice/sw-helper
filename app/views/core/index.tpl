@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
   <head>
@@ -8,12 +9,12 @@
       var start_action = "{$action}";
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src = "{$conf->action_root}js/ajax-engine.js?v=2"></script>
+    <script src = "{$conf->action_root}js/ajax-engine.js?v=3"></script>
 
     {block name = 'extras'}{/block}
   </head>
 
-  <body>
+  <body {block name = 'body-config'}{/block}>
     {block name = 'body'}{/block}
   </body>
 </html>

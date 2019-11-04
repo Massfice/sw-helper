@@ -6,16 +6,17 @@ use core\App;
 use Massfice\Storage\Storage;
 use Massfice\SelectingViewResolver\SelectingViewResolver;
 use Massfice\SessionUtils\SessionUtils;
+use app\init\InitSmartyAssign;
 
 class ViewResolver {
 
-  public static function data(string $key, $value, bool $override_allowed = false) {
+  public static function data(string $key, $value, bool $override_allowed = true) {
     Storage::getInstance()
       ->getShelf('view_resolver_data')
       ->addData($key,$value,$override_allowed);
   }
 
-  public static function content(string $file, string $el_name = 'content', bool $override_allowed = false) {
+  public static function content(string $file, string $el_name = 'content', bool $override_allowed = true) {
     Storage::getInstance()
       ->getShelf('view_resolver_contents')
       ->addData($el_name,App::getSmarty()->fetch($file.'.tpl'),$override_allowed);
@@ -35,6 +36,21 @@ class ViewResolver {
 
     if(!$isAssigned || $override_allowed)
       App::getSmarty()->assign($key,$value);
+  }
+
+  public static function refresh(string $container = '') {
+    InitSmartyAssign::refresh();
+    $hierarchy = ContainersHierarchy::getInstance()->getHierarchyOf($container);
+
+    if($hierarchy) {
+      for($i = 0; $i < count($hierarchy); $i++) {
+        if($hierarchy[$i] == $container) break;
+      }
+
+      self::content('extends:containers/'.$container.'.tpl|core/up','up_'.$i);
+      self::content('extends:containers/'.$container.'.tpl|core/down','down_'.$i);
+      self::content('extends:containers/'.$container.'.tpl|core/title','container_title');
+    }
   }
 
 }
