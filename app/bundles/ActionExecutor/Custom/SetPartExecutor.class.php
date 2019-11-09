@@ -81,6 +81,14 @@ class SetPartExecutor {
     self::varsView();
   }
 
+  public static function moveVarUp() {
+    self::varsView();
+  }
+
+  public static function moveVarDown() {
+    self:: varsView();
+  }
+
   public static function generatorView() {
     FormFactory::create('PostGeneratorForm')->getView()->assign('post_generator_form');
     ViewResolver::content('post_generator_form_view','generator_vars');

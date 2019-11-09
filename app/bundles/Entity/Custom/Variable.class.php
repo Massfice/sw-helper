@@ -125,8 +125,9 @@ class Variable extends Entity {
     return $this;
   }
 
-  public function setPosition(int $position) {
+  public function setPosition(int $position) :self {
     $this->position = $position;
+    return $this;
   }
 
   public function getName() : string {

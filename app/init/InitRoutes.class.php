@@ -27,6 +27,8 @@ class InitRoutes {
     new Route('createVar','SetsCtrl',['user']);
     new Route('modifyVar','SetsCtrl',['user']);
     new Route('deleteVar','SetsCtrl',['user']);
+    new Route('moveVarUp','SetsCtrl',['user']);
+    new Route('moveVarDown','SetsCtrl',['user']);
 
     new Route('generatorView','SetsCtrl',['user']);
     new Route('generatePost','SetsCtrl',['user']);

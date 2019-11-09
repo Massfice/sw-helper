@@ -72,6 +72,16 @@ class SetsCtrl {
     ActionExecutorFactory::create('ServiceExecutor')->setContainer('sets')->action($service);
   }
 
+  public function action_moveVarUp() {
+    $service = ServiceFactory::create('MoveVarUp');
+    ActionExecutorFactory::create('ServiceExecutor')->setContainer('sets')->action($service);
+  }
+
+  public function action_moveVarDown() {
+    $service = ServiceFactory::create('MoveVarDown');
+    ActionExecutorFactory::create('ServiceExecutor')->setContainer('sets')->action($service);
+  }
+
   public function action_generatorView() {
     ViewResolver::content('generator_view');
     SetPartExecutor::generatorView();

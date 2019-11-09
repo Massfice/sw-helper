@@ -9,7 +9,7 @@ class CreateVariable implements Query {
   public function execute(?array $config) : ?array {
 
     $i = App::getDB()->count('variable_table',[
-      'set_id' =>$config['set_id']
+      'set_id' => $config['set_id']
     ]);
 
     $config['position'] = $i;
