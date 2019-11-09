@@ -53,8 +53,7 @@ abstract class Entity {
       $array = $this->create_query->execute($config);
       $this->onCreate($array);
     }
-
-    if($this->shouldUpdate()) {
+    else if($this->shouldUpdate()) {
       $config = $this->getUpdateConfig();
       $array = $this->update_query->execute($config);
       $this->onUpdate($array);

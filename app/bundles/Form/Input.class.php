@@ -4,17 +4,18 @@ namespace app\bundles\Form;
 
 class Input {
 
-  private $name;
-  private $template;
-  private $text;
+  protected $name;
+  protected $template;
+  protected $text;
+  protected $default_value;
 
-  private function __construct(string $name, ?string $template) {
+  protected function __construct(string $name, ?string $template) {
     $this->name = $name;
     $this->template = $template;
   }
 
   public static function createInput(string $name, ?string $template = null) : self {
-    return new self($name,$template);
+    return new static($name,$template);
   }
 
   public function getName() : string {
@@ -27,6 +28,10 @@ class Input {
 
   public function getText() : ?string {
     return $this->text;
+  }
+
+  public function getDefaultValue() : ?string {
+    return $this->default_value;
   }
 
   public function setName(string $name, ?Form $form = null) : self {
@@ -47,6 +52,11 @@ class Input {
 
   public function setText(string $text) : self {
     $this->text = $text;
+    return $this;
+  }
+
+  public function setDefaultValue(string $value) : self {
+    $this->default_value = $value;
     return $this;
   }
 

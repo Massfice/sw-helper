@@ -1,0 +1,1 @@
+<textarea name="{$input->getName()}" id="{$form->getVar('name')}_{$input->getName()}" class="inputbox" rows="15" cols="15" form = "{$form->getVar('name')}_modify" style = "width:20%;height:20%">{$input->getDefaultValue()}</textarea>

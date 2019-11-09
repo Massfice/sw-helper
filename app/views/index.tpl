@@ -30,7 +30,7 @@
 					<tr class="bg3">
 						<td>
 		</div>
-
+						<div id = 'errors' style = 'padding-top:15px;padding-bottom:15px;'></div>
 						<fieldset style="border: 2px solid #a29b9b; border-radius: 6px; padding: 4px 10px 12px; width: 90%;" class = "mymenu">
 							<legend style="color: #FFF; font: italic bold 14px/24px Verdana,Helvetica,Arial,sans-serif;padding: 0px 8px;">
 								<ul id = "up_1">
@@ -42,7 +42,6 @@
 									</ul>
 								</legend>
  							<div id = 'content'></div>
-							<div id = 'errors'></div>
 						</fieldset>
 					</fieldset>
 

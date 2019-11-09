@@ -41,7 +41,7 @@ class ViewResolver {
   public static function refresh(string $container = '') {
     InitSmartyAssign::refresh();
     $hierarchy = ContainersHierarchy::getInstance()->getHierarchyOf($container);
-
+    $hierarchy = array_reverse($hierarchy);
     if($hierarchy) {
       for($i = 0; $i < count($hierarchy); $i++) {
         if($hierarchy[$i] == $container) break;

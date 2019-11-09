@@ -11,11 +11,15 @@ class EntityManagerInit {
     $delete = QueryFactory::create('Delete');
     $update = QueryFactory::create('Update');
     $select = QueryFactory::create('Select');
+    $delete_set = QueryFactory::create('DeleteSet');
+    $create_variable = QueryFactory::create('CreateVariable');
 
     EntityManager::setSelectQuery($select);
     EntityManager::setUpdateQuery($update);
     EntityManager::setCreateQuery($create);
     EntityManager::setDeleteQuery($delete);
+    EntityManager::setDeleteQuery($delete_set,'app\bundles\Entity\Custom\Set');
+    EntityManager::setCreateQuery($create_variable,'app\bundles\Entity\Custom\Variable');
   }
 }
 

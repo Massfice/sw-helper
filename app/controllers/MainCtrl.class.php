@@ -19,7 +19,7 @@ use app\routes\RoutesInfo;
 class MainCtrl {
 
   public function __construct() {
-    Init::init();
+    Init::getInstance()->init();
     InitRoutes::init();
     InitContainers::init();
     InitSmartyAssign::init();

@@ -8,6 +8,7 @@ use app\bundles\ViewResolver\ViewResolver;
 use Massfice\SessionUtils\SessionUtils;
 use core\RoleUtils;
 use app\routes\Routes;
+use app\SWHelperFeatures\PostGenerator\SpecialResolver;
 
 class AccessCtrl {
 
@@ -37,6 +38,8 @@ class AccessCtrl {
     RoleUtils::removeRole('user');
     RoleUtils::addRole('guest');
     SessionUtils::unset('user');
+    SessionUtils::unset('current_set');
+    SpecialResolver::clear();
     ViewResolver::refresh('main');
     Routes::getInstance()->getRoute('loginView')->forward();
   }

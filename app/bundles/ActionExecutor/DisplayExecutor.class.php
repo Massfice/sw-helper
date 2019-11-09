@@ -10,6 +10,10 @@ abstract class DisplayExecutor extends ActionExecutor {
 
   protected $container;
 
+  public function __construct() {
+    $this->container = null;
+  }
+
   public function setContainer(string $container) : self {
     $this->container = $container;
     return $this;

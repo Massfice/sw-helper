@@ -79,13 +79,13 @@ class User extends Entity {
   }
 
   protected function onSelect(?array $array) {
-    $this->id = $array[0]['id'];
+    $this->id = $array[0]['id'] + 0;
     $this->login = $array[0]['login'];
     $this->password = $array[0]['password'];
   }
 
   protected function onCreate(?array $array) {
-    $this->id = $array['id'];
+    $this->id = $array['id'] + 0;
   }
 
   protected function onUpdate(?array $array) {

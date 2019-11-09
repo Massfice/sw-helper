@@ -4,9 +4,22 @@ namespace app\init\core;
 
 use Massfice\Storage\ShelfBuilder;
 use Massfice\UtilsManager\UtilsManager;
+use app\init\InitEnd;
 
 class Init {
-  public static function init() {
+
+  private static $instance;
+
+  private function __construct() {}
+
+  public static function getInstance() : self {
+    if(!isset(self::$instance))
+      self::$instance = new self();
+
+    return self::$instance;
+  }
+
+  public function init() {
     ShelfBuilder::getBuilder()
       ->setJsonAllowed(true)
       ->setSessionAllowed(false)
@@ -42,6 +55,10 @@ class Init {
       ->addToStorage('entity_manager_updates');
 
     UtilsManager::getInstance()->setSessionUtil(new Session());
+  }
+
+  public function __destruct() {
+    InitEnd::init();
   }
 }
 
